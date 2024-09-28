@@ -9,6 +9,7 @@ TOP Project: Etch a Sketch
         - technically the container should be in the center of the page.
         - will try to prompt with chatgpt to get reference.
     b. Things to do by 25/09/2024
-        - Create a 16x16 square divs (with js DOM manipulation).
+        - Create a 16x16 square divs (with js DOM manipulation).(done)
+        - 
         - 
 

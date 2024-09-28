@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div id="container">
+    <div class="body">
+        <div id="container">
 
+        </div>
     </div>
+
     <script>
         let container = document.querySelector('#container');
 
@@ -18,9 +21,25 @@
             div.className = 'grid-div';
             div.style.width = '40px';
             div.style.height = '40px';
-            div.style.border = '1px black';
+            div.style.border = '1px solid black';
             container.appendChild(div);
-        }        
+        }
+        
+        let grid = document.querySelectorAll('.grid-div');
+
+        grid.forEach(div =>{
+            div.addEventListener('mouseover',function(event){
+                event.target.style.backgroundColor = 'black';
+            })
+        })
+
+        grid.forEach(div =>{
+            div.addEventListener('mouseout',function(event){
+                event.target.style.backgroundColor = '';
+            })
+        })
+
+        console.log(grid);
     </script>
 </body>
 </html>
