@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+    <div>
+        <button class="button" type="button">Change Grid Number!</button>
+    </div>
     <div class="body">
-        <div id="container">
 
+        <div id="container">
+            
         </div>
     </div>
 
     <script>
+        let userInput;
         let container = document.querySelector('#container');
+        let button = document.querySelector('.button');
 
         for(let i = 0; i < 256; i++){
             let div = document.createElement('div');
@@ -30,16 +36,64 @@
         grid.forEach(div =>{
             div.addEventListener('mouseover',function(event){
                 event.target.style.backgroundColor = 'black';
-            })
-        })
+            });
+        });
 
         grid.forEach(div =>{
             div.addEventListener('mouseout',function(event){
                 event.target.style.backgroundColor = '';
-            })
-        })
+            });
+        });
 
-        console.log(grid);
+        button.addEventListener('click',function(){
+            userInput = parseInt(prompt("How many grid on X axis?"));
+            if (!isNaN(userInput) && userInput > 0 && userInput <100) {
+                generateGrid(userInput);
+            } else {
+                alert("Please enter a valid number!");
+            }
+        });
+
+        function clearGrid(){
+            container.innerHTML = '';
+        }
+
+        function calculateBoxSize(userInput){
+            return 640 / userInput;
+        }
+
+        function createNewGrid(userInput){
+            let boxSize = calculateBoxSize(userInput);
+
+            for(let i = 0; i < userInput * userInput; i++){
+                let div = document.createElement('div');
+                div.className = 'grid-div';
+                div.style.width = `${boxSize}px`;
+                div.style.height = `${boxSize}px`;
+                div.style.border = '1px solid black';
+                container.appendChild(div);
+            }
+        }
+        
+        function applyHoverEffect() {
+            let gridBoxes = document.querySelectorAll('.grid-div');
+            gridBoxes.forEach((div) => {
+                div.addEventListener('mouseover',function() {
+                    div.style.backgroundColor = 'black';
+                })
+            })
+            console.log(gridBoxes);
+        }
+
+        function generateGrid(userInput) {
+            clearGrid();
+            createNewGrid(userInput);
+            applyHoverEffect();
+        }
+
+        
+
+  
     </script>
 </body>
 </html>

@@ -10,6 +10,14 @@ TOP Project: Etch a Sketch
         - will try to prompt with chatgpt to get reference.
     b. Things to do by 25/09/2024
         - Create a 16x16 square divs (with js DOM manipulation).(done)
-        - 
-        - 
+        - Set up a hover effect with black color (Done)
+    c. Things to do by 29/09/2024
+        - Add a button on top of the screen. (done)
+        - prompt for numbers of squares with button tag (done~), and the changes will be like 
+            - the grid total size should be same as before
+            - will probably need to create a function for this.
+            function requirements
+                - 
+        
+         
 
